@@ -64,7 +64,7 @@ class MainButton: UIButton {
         
         self.titleLabel?.font = font
                 
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 27.5
                 
         self.buttonStyle = style
         
@@ -85,20 +85,24 @@ class MainButton: UIButton {
         case .primary:
             backgroundColor = .primaryOrange
             textColor = .white
+            isEnabled = true
             
         case .secondary:
             backgroundColor = .primaryBlack
             textColor = .white
+            isEnabled = true
             
         case .disable:
             backgroundColor = .disabledButton
             textColor = .lightGray
+            isEnabled = false
             
         case .cancel:
             backgroundColor = .white
             textColor = .primaryOrange
             layer.borderWidth = 1
             layer.borderColor = UIColor.primaryOrange.cgColor
+            isEnabled = true
         }
         
         setTitleColor(textColor, for: .normal)

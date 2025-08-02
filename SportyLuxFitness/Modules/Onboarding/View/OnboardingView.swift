@@ -8,10 +8,13 @@
 import UIKit
 
 class OnboardingView: UIView {
-
+    
+    
     init() {
         super.init(frame: .zero)
         setup()
+        setupSubviews()
+        layoutConstraints()
         
     }
     
@@ -19,10 +22,23 @@ class OnboardingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
-        backgroundColor = .primaryOrange
+    
+    //MARK: Setup
+    private func setup() {
+        backgroundColor = .appBackground
+    }
+    
+    private func setupSubviews() {
+       
+        
+    }
+    
+    //MARK: - Constraint
+    private func layoutConstraints() {
+        
     }
     
     
-
+    
+    
 }

@@ -34,7 +34,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             
         } else {
             
-            let vc = OnboardingViewController()
+            let vc = LoginViewController()
             vc.coordinator = self
             navigationController.setViewControllers([vc], animated: false)
         }
@@ -48,16 +48,16 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
 }
 
-//extension MainCoordinator {
+extension MainCoordinator {
 //    func onboarding() {
 //        let vc = OnboardingViewController()
 //        vc.coordinator = self
 //        navigationController.pushViewController(vc, animated: true)
 //    }
 //    
-//    func entry() {
-//        let vc = EntryViewController()
-//        vc.coordinator = self
-//        navigationController.pushViewController(vc, animated: true)
-//    }
-//}
+    func toVerificationVC() {
+        let vc = VerificationViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+}
