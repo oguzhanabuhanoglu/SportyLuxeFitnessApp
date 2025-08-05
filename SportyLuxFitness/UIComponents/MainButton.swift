@@ -55,10 +55,12 @@ class MainButton: UIButton {
     convenience init(
         title: String,
         style: MainButtonStyle = .primary,
-        font: UIFont = UIFont(name: "Poppins-SemiBold", size: 16) ?? .systemFont(ofSize: 16, weight: .semibold)
+        font: UIFont = UIFont(name: "Poppins-Bold", size: 16) ?? .systemFont(ofSize: 16, weight: .semibold)
     ) {
     
         self.init(type: .custom)
+        
+        self.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
         self.setTitle(title, for: .normal)
         

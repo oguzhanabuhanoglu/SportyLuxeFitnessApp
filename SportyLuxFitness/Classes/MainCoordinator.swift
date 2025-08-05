@@ -26,18 +26,20 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         
         navigationController.view.layer.add(transition, forKey: nil)
         
-        if UserManager.isUserLoggedIn {
-            
-            let vc = HomeViewController()
-            vc.coordinator = self
-            navigationController.setViewControllers([vc], animated: false)
-            
-        } else {
-            
-            let vc = LoginViewController()
-            vc.coordinator = self
-            navigationController.setViewControllers([vc], animated: false)
-        }
+        let vc = HomeViewController()
+        vc.coordinator = self
+        navigationController.setViewControllers([vc], animated: false)
+        
+//        if UserManager.isUserLoggedIn {
+//            
+//            
+//            
+//        } else {
+//            
+//            let vc = LoginViewController()
+//            vc.coordinator = self
+//            navigationController.setViewControllers([vc], animated: false)
+//        }
         
     }
     
@@ -49,15 +51,52 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
 }
 
 extension MainCoordinator {
-//    func onboarding() {
-//        let vc = OnboardingViewController()
-//        vc.coordinator = self
-//        navigationController.pushViewController(vc, animated: true)
-//    }
-//    
-    func toVerificationVC() {
+
+    func toVerification() {
         let vc = VerificationViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func toMenu(accountType: AccountType) {
+        let vc = MainMenuViewController(accountType: accountType)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toNotifications() {
+        let vc = NotificationsViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toOperationListVC(listType: OperationListTypes) {
+        let vc = OperationListViewController(listType: listType)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toMemberRegisterVC(accountType: AccountType) {
+        let vc = RegisterViewController(accountType: accountType)
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toPTOperationsView() {
+        
+    }
+    
+    func toAdminOperationsVC() {
+        
+    }
+    
+    func toClubOperationsVC() {
+        
+    }
+    
+    func toGroupLessonsVC() {
+        
+    }
+    
+    
 }
