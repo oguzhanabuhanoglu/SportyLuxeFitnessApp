@@ -15,12 +15,7 @@ class LoginView: UIView {
         return label
     }()
     
-    let phoneNumberTextFieldComponent: TextFieldComponentView = {
-        let field = TextFieldComponentView(title: "Telefon Numaran")
-        field.textField.keyboardType = .asciiCapableNumberPad
-        field.textField.characterLimit = 10
-        return field
-    }()
+    let phoneNumberTextFieldComponent = PhoneNumberInputComponent()
     
     let sendCodeButton: MainButton = {
         let button = MainButton(title: "Kod Gönder", style: .primary, font: .poppins(.bold(16)))
@@ -61,7 +56,7 @@ class LoginView: UIView {
     //MARK: - Constraint
     private func layoutConstraints() {
         phoneNumberTextFieldComponent.translatesAutoresizingMaskIntoConstraints = false
-        
+                        
         titleLabel.anchor(
             .top(anchor: topAnchor, padding: 230),
             .centerX(centerXAnchor),
@@ -74,6 +69,7 @@ class LoginView: UIView {
             .trailing(anchor: trailingAnchor, padding: 24),
             .height(.constant(70))
         )
+        
         
         sendCodeButton.anchor(
             .top(anchor: phoneNumberTextFieldComponent.bottomAnchor, padding: 10),

@@ -55,18 +55,13 @@ class RegisterView: UIView {
         field.textField.returnKeyType = .next
         field.textField.inputView = datePicker
         field.textField.addAction(UIAction { [weak self] _ in
-            self?.phoneNumberTFComponent.textField.becomeFirstResponder()
+            self?.phoneNumberTFComponent.phoneTextField.becomeFirstResponder()
         }, for: .editingDidEndOnExit)
         field.textField.textAlignment = .center
         return field
     }()
     
-    lazy var phoneNumberTFComponent: TextFieldComponentView = {
-        let field = TextFieldComponentView(title: "Telefon Numarası")
-        field.textField.returnKeyType = .done
-        field.textField.keyboardType = .asciiCapableNumberPad
-        return field
-    }()
+    lazy var phoneNumberTFComponent = PhoneNumberInputComponent()
     
     lazy var membershipOptionsView: OptionsGroupView = {
         let view = OptionsGroupView(title: "Abonelik Paketi", options: ["Classic", "Gold"])
@@ -82,9 +77,6 @@ class RegisterView: UIView {
         let field = TextFieldComponentView(title: "Abonelik Başlangıcı")
         field.textField.returnKeyType = .next
         field.textField.inputView = datePicker
-        field.textField.addAction(UIAction { [weak self] _ in
-            self?.phoneNumberTFComponent.textField.becomeFirstResponder()
-        }, for: .editingDidEndOnExit)
         field.textField.textAlignment = .center
         return field
     }()

@@ -22,8 +22,8 @@ class LoginViewController: ViewController<LoginView> {
     
     //MARK: - Functions
     private func setupActions() {
-        mainView.phoneNumberTextFieldComponent.textField.addAction(UIAction { [weak self] _ in
-            if let _ = try? self?.validation.validatePhoneNumber(self?.mainView.phoneNumberTextFieldComponent.fieldValue) {
+        mainView.phoneNumberTextFieldComponent.phoneTextField.addAction(UIAction { [weak self] _ in
+            if let _ = try? self?.validation.validatePhoneNumber(self?.mainView.phoneNumberTextFieldComponent.phoneTextField.text) {
                 self?.mainView.sendCodeButton.isActive = true
             } else {
                 self?.mainView.sendCodeButton.isActive = false
@@ -42,7 +42,7 @@ class LoginViewController: ViewController<LoginView> {
             let phoneNumber = try validation.validatePhoneNumber(mainView.phoneNumberTextFieldComponent.fieldValue)
             print("Phone number", phoneNumber)
 //            authorize(phoneNumber: phoneNumber)
-            coordinator?.toVerificationVC()
+            coordinator?.toVerification()
         } catch {
             print("⚠️ gazaaaaaa")
 //            mainView.phoneNumberTextFieldComponent.showError(error: error.localizedDescription)
