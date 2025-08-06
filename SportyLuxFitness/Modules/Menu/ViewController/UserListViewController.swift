@@ -15,7 +15,17 @@ enum OperationListTypes {
     case memberListForMeasurement
 }
 
-class OperationListViewController: ViewController<MemberOperationsView> {
+class UserListViewController: ViewController<UserListView> {
+    
+    let trainers: [Trainer] = [
+        Trainer(id: "12", name: "Yok", image: nil),
+        Trainer(id: "123", name: "Arnold S.", image: UIImage(named: "arnold")),
+        Trainer(id: "1234", name: "Arnold S.", image: UIImage(named: "arnold")),
+        Trainer(id: "12345", name: "Arnold S.", image: UIImage(named: "arnold")),
+        Trainer(id: "123456", name: "Arnold S.", image: UIImage(named: "arnold")),
+        Trainer(id: "1234567", name: "Arnold S.", image: UIImage(named: "arnold")),
+        Trainer(id: "1234567", name: "Ronnie C.", image: UIImage(named: "ronnie"))
+    ]
     
     //MARK: - Properties
     private var listType: OperationListTypes?
@@ -31,6 +41,7 @@ class OperationListViewController: ViewController<MemberOperationsView> {
 
         setup()
         setupActions()
+        setupCollectionView()
     }
     
     //MARK: - Functions
@@ -79,7 +90,29 @@ class OperationListViewController: ViewController<MemberOperationsView> {
         }, for: .touchUpInside)
     }
     
+    private func setupCollectionView() {
+        
+        mainView.listCollectionView.register(ListCell.self, forCellWithReuseIdentifier: ListCell.identifier)
+        mainView.listCollectionView.delegate = self
+        mainView.listCollectionView.dataSource = self
+    }
 
    
 
+}
+
+
+extension UserListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return trainers.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let trainer = trainers[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCell.identifier, for: indexPath) as! ListCell
+        cell.configure(with: trainer)
+        return cell
+    }
+    
+    
 }

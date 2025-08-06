@@ -71,7 +71,7 @@ extension MainCoordinator {
     }
     
     func toOperationListVC(listType: OperationListTypes) {
-        let vc = OperationListViewController(listType: listType)
+        let vc = UserListViewController(listType: listType)
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
@@ -94,7 +94,16 @@ extension MainCoordinator {
         
     }
     
-    func toGroupLessonsVC() {
+    func toGroupLessonListVC() {
+        let vc = GroupLessonsListViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toCreateLessonVC() {
+        let vc = CreateLessonViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
         
     }
     

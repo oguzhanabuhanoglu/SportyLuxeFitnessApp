@@ -54,13 +54,8 @@ class MainMenuViewController: ViewController<MainMenuView> {
             self?.coordinator?.toOperationListVC(listType: .adminList)
         }, for: .touchUpInside)
         
-        mainView.clubOperationsButton.addAction(UIAction { [weak self] _ in
-            //
-        }, for: .touchUpInside)
-        
-        
         mainView.grouplessonOperationsButton.addAction(UIAction { [weak self] _ in
-            //
+            self?.coordinator?.toGroupLessonListVC()
         }, for: .touchUpInside)
     
         mainView.myStudentsButton.addAction(UIAction { [weak self] _ in

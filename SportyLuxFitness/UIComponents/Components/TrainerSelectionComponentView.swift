@@ -23,6 +23,7 @@ class TrainerSelectionComponentView: UIView {
         layout.minimumInteritemSpacing = 12
         layout.minimumLineSpacing = 12
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: 100, height: 120)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
@@ -60,6 +61,6 @@ class TrainerSelectionComponentView: UIView {
 
     private func setupConstraints() {
         containerStack.fillToSuperview(.fullSpace())
-//        collectionView.anchor(.height(.constant(140))) 
+        collectionView.anchor(.height(.constant(120))) 
     }
 }

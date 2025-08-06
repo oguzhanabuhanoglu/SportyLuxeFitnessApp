@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddProfilePictureView: UIView {
+class AddPictureView: UIView {
     
     
     // MARK: - Subviews

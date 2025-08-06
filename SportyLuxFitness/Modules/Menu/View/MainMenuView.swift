@@ -24,12 +24,7 @@ class MainMenuView: UIView {
         let button = MainButton(title: "Admin İşlemleri", style: .secondary)
         return button
     }()
-    
-    let clubOperationsButton: MainButton = {
-        let button = MainButton(title: "İşletme İşlemleri", style: .secondary)
-        return button
-    }()
-    
+
     let grouplessonOperationsButton: MainButton = {
         let button = MainButton(title: "Grup Dersi İşlemleri", style: .secondary)
         return button
@@ -57,7 +52,6 @@ class MainMenuView: UIView {
         let stack = UIStackView(arrangedSubviews: [memberOperationsButton,
                                                    ptOperationsButton,
                                                    adminOperationsButton,
-                                                   clubOperationsButton,
                                                    grouplessonOperationsButton,
                                                    myStudentsButton,
                                                    memberMeasrementRegisterButton])
@@ -104,7 +98,6 @@ class MainMenuView: UIView {
         [memberOperationsButton,
          ptOperationsButton,
          adminOperationsButton,
-         clubOperationsButton,
          grouplessonOperationsButton,
          myStudentsButton,
          memberMeasrementRegisterButton].forEach { button in

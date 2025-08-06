@@ -53,7 +53,7 @@ class RegisterView: UIView {
     lazy var birthdayTFComponent: TextFieldComponentView = {
         let field = TextFieldComponentView(title: "Doğum Tarihi")
         field.textField.returnKeyType = .next
-        field.textField.inputView = datePicker
+        field.textField.inputView = birthdayDatePicker
         field.textField.addAction(UIAction { [weak self] _ in
             self?.phoneNumberTFComponent.phoneTextField.becomeFirstResponder()
         }, for: .editingDidEndOnExit)
@@ -101,7 +101,7 @@ class RegisterView: UIView {
     }()
     
     // MARK: PT COMPONENTS
-    lazy var addProfilePictureView = AddProfilePictureView()
+    lazy var addProfilePictureView = AddPictureView()
     lazy var certificatesComponent = TextViewComponentView(title: "Sertifikalar")
     lazy var expertiseComponent = TextViewComponentView(title: "Uzmanlık Alanları")
     
@@ -146,6 +146,14 @@ class RegisterView: UIView {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .wheels
+        picker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+        return picker
+    }()
+    
+    lazy var birthdayDatePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .date
+        picker.preferredDatePickerStyle = .wheels
         picker.maximumDate = Calendar.current.date(byAdding: .year, value: -18, to: Date())
         picker.addTarget(self, action: #selector(birthdayChanged), for: .valueChanged)
         return picker
@@ -166,7 +174,13 @@ class RegisterView: UIView {
     @objc private func birthdayChanged() {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
-        birthdayTFComponent.textField.text = formatter.string(from: datePicker.date)
+        birthdayTFComponent.textField.text = formatter.string(from: birthdayDatePicker.date)
+    }
+    
+    @objc private func dateChanged() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        membershipStartDateTFComponent.textField.text = formatter.string(from: datePicker.date)
     }
     
     

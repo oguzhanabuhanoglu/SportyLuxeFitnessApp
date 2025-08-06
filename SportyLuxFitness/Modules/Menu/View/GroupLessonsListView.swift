@@ -1,25 +1,22 @@
 //
-//  MemberOperationsView.swift
+//  GroupLessonsListView.swift
 //  SportyLuxFitness
 //
-//  Created by Oğuzhan Abuhanoğlu on 5.08.2025.
+//  Created by Oğuzhan Abuhanoğlu on 7.08.2025.
 //
 
 import UIKit
 
-class MemberOperationsView: UIView {
-    
+class GroupLessonsListView: UIView {
+
     let plusButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(.plusIcon, for: .normal)
+        let button = UIButton()
+        button.setImage(UIImage(named: "plusIcon"), for: .normal)
         return button
     }()
-
+    
     init() {
         super.init(frame: .zero)
-        setup()
-        setupSubviews()
-        layoutConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -34,8 +31,8 @@ class MemberOperationsView: UIView {
        
     }
     
-    private func layoutConstraints() {
-
+    private func layourConstraints() {
+        
     }
 
 }
