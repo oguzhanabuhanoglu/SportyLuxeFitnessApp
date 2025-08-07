@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BFD583722E3BEDF8008084DC /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BFD583712E3BEDF8008084DC /* KeychainSwift */; };
+		BFFE65A72E44EBC000539371 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BFFE65A62E44EBC000539371 /* IQKeyboardManagerSwift */; };
+		BFFE65AA2E44EC2100539371 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BFFE65A92E44EC2100539371 /* KeychainSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD583722E3BEDF8008084DC /* KeychainSwift in Frameworks */,
+				BFFE65AA2E44EC2100539371 /* KeychainSwift in Frameworks */,
+				BFFE65A72E44EBC000539371 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +85,8 @@
 			);
 			name = SportyLuxFitness;
 			packageProductDependencies = (
-				BFD583712E3BEDF8008084DC /* KeychainSwift */,
+				BFFE65A62E44EBC000539371 /* IQKeyboardManagerSwift */,
+				BFFE65A92E44EC2100539371 /* KeychainSwift */,
 			);
 			productName = SportyLuxFitness;
 			productReference = BFD582122E3BEA33008084DC /* SportyLuxFitness.app */;
@@ -114,7 +117,8 @@
 			mainGroup = BFD582092E3BEA33008084DC;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				BFD583702E3BEDF8008084DC /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				BFFE65A52E44EBC000539371 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				BFFE65A82E44EC2100539371 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BFD582132E3BEA33008084DC /* Products */;
@@ -352,7 +356,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BFD583702E3BEDF8008084DC /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+		BFFE65A52E44EBC000539371 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.6;
+			};
+		};
+		BFFE65A82E44EC2100539371 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
 			requirement = {
@@ -363,9 +375,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BFD583712E3BEDF8008084DC /* KeychainSwift */ = {
+		BFFE65A62E44EBC000539371 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFD583702E3BEDF8008084DC /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			package = BFFE65A52E44EBC000539371 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		BFFE65A92E44EC2100539371 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFFE65A82E44EC2100539371 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

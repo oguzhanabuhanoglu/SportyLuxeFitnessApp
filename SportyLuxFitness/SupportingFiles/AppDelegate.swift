@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         navBarAppearance()
+        configureKeyboard()
         
         return true
 
@@ -34,6 +36,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
+    
+    private func configureKeyboard() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Bitti"
+        IQKeyboardManager.shared.toolbarTintColor = .secondaryText
+        IQKeyboardManager.shared.placeholderFont = .poppins(.medium(14))
+//        IQKeyboardManager.shared.disabledDistanceHandlingClasses = [VehicleViewController.self]
+//        IQKeyboardManager.shared.disabledToolbarClasses = [VehicleViewController.self]
+    }
+
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
